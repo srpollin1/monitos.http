@@ -3,6 +3,9 @@ const app = express();
 const port = 3000;
 
 
+// Servir archivos estáticos desde la carpeta 'img'
+app.use('/img', express.static(__dirname + '/img'));
+
 
 // Respuestas informativas (1xx)
 app.get('/100', (req, res) => {
@@ -23,47 +26,61 @@ app.get('/103', (req, res) => {
 
 
 
+
 // Respuestas satisfactorias (2xx)
 app.get('/200', (req, res) => {
-    res.status(200).send('Respuesta Satisfactoria: OK');
-  });
-  
-  app.get('/201', (req, res) => {
-    res.status(201).send('Respuesta Satisfactoria: Creado');
-  });
-  
-  app.get('/202', (req, res) => {
-    res.status(202).send('Respuesta Satisfactoria: Aceptado');
-  });
-  
-  app.get('/203', (req, res) => {
-    res.status(203).send('Respuesta Satisfactoria: No autorizado');
-  });
-  
-  app.get('/204', (req, res) => {
-    res.status(204).send('Respuesta Satisfactoria: Sin contenido');
-  });
-  
-  app.get('/205', (req, res) => {
-    res.status(205).send('Respuesta Satisfactoria: Restablecer contenido');
-  });
-  
-  app.get('/206', (req, res) => {
-    res.status(206).send('Respuesta Satisfactoria: Contenido parcial');
-  });
-  
-  app.get('/207', (req, res) => {
-    res.status(207).send('Respuesta Satisfactoria: Estado múltiple');
-  });
-  
-  app.get('/208', (req, res) => {
-    res.status(208).send('Respuesta Satisfactoria: Ya reportado');
-  });
-  
-  app.get('/226', (req, res) => {
-    res.status(226).send('Respuesta Satisfactoria: IM utilizado');
-  });
+  res.sendFile(__dirname + '/img/1.svg');
+});
 
+// Se envía la imagen correspondiente al código de estado 201
+app.get('/201', (req, res) => {
+  res.sendFile(__dirname + '/img/1.svg');
+});
+
+// Se envía la imagen correspondiente al código de estado 202
+app.get('/202', (req, res) => {
+  res.sendFile(__dirname + '/img/2.svg');
+});
+
+// Se envía la imagen correspondiente al código de estado 203
+app.get('/203', (req, res) => {
+  res.sendFile(__dirname + '/img/3.svg');
+});
+
+// Se envía la imagen correspondiente al código de estado 204
+app.get('/204', (req, res) => {
+  res.sendFile(__dirname + '/img/4.svg');
+});
+
+// Se envía la imagen correspondiente al código de estado 205
+app.get('/205', (req, res) => {
+  res.sendFile(__dirname + '/img/5.svg');
+});
+
+// Se envía la imagen correspondiente al código de estado 206
+app.get('/206', (req, res) => {
+  res.sendFile(__dirname + '/img/6.svg');
+});
+
+// Se envía la imagen correspondiente al código de estado 207
+app.get('/207', (req, res) => {
+  res.sendFile(__dirname + '/img/7.svg');
+});
+
+// Se envía la imagen correspondiente al código de estado 208
+app.get('/208', (req, res) => {
+  res.sendFile(__dirname + '/img/8.svg');
+});
+
+// Se envía la imagen correspondiente al código de estado 226
+app.get('/226', (req, res) => {
+  res.sendFile(__dirname + '/img/9.svg');
+});
+
+// Se envía la imagen correspondiente al código de estado 227
+app.get('/227', (req, res) => {
+  res.sendFile(__dirname + '/img/10.svg');
+});
 
 
 
@@ -124,7 +141,7 @@ app.get('/400', (req, res) => {
   });
   
   app.get('/404', (req, res) => {
-    res.status(404).send('Error del Cliente: No encontrado');
+    res.status(404).send('Error del Cliente: No encontradoooo');
   });
   
   app.get('/405', (req, res) => {
